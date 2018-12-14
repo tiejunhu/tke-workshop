@@ -19,5 +19,13 @@ spec:
         image: ccr.ccs.tencentyun.com/tiejunhu/node-app-1
         ports:
         - containerPort: 8888
+        volumeMounts:
+        - name: nfs-external
+          mountPath: /var/vol1/
       imagePullSecrets:
       - name: privccr
+      volumes:
+      - name: nfs-external
+        nfs:
+          path: /
+          server: 172.21.16.13
