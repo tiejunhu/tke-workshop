@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-app-1-service
+spec:
+  selector:
+    app: node-app-1
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8888
+  type: LoadBalancer
