@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-	annotations:
-		kubernetes.io/ingress.class: qcloud
-	name: node-app-1-ingress
-	namespace: default
+  annotations:
+    kubernetes.io/ingress.class: qcloud
+  name: node-app-1-ingress
+  namespace: default
 spec:
-	rules:
-	- host: domain.test
-		http:
-			paths:
-			- backend:
-					serviceName: node-app-1-service
-					servicePort: 80
-				path: /
+  rules:
+  - host: domain.test
+    http:
+      paths:
+      - backend:
+          serviceName: node-app-1-service
+          servicePort: 80
+        path: /

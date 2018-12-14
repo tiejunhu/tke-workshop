@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-	name: node-app-1-deployment
-	labels:
-		app: node-app-1
+  name: node-app-1-deployment
+  labels:
+    app: node-app-1
 spec:
-	replicas: 2
-	selector:
-		matchLabels:
-			app: node-app-1
-	template:
-		metadata:
-			labels:
-				app: node-app-1
-		spec:
-			containers:
-			- name: node-app-1
-				image: ccr.ccs.tencentyun.com/tiejunhu/node-app-1
-				ports:
-				- containerPort: 8888
-			imagePullSecrets:
-			- name: privccr
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-app-1
+  template:
+    metadata:
+      labels:
+        app: node-app-1
+    spec:
+      containers:
+      - name: node-app-1
+        image: ccr.ccs.tencentyun.com/tiejunhu/node-app-1
+        ports:
+        - containerPort: 8888
+      imagePullSecrets:
+      - name: privccr
