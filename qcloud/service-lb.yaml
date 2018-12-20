@@ -2,8 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: node-app-1-service
-  annotations:
-    service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-joehuprp
 spec:
   selector:
     app: node-app-1
