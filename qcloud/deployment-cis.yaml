@@ -1,12 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app-1-deployment
-  labels:
-    app: node-app-1
-  annotations:
-    kubernetes.io/cis.vpcId: vpc-dnyq9dgn
-    kubernetes.io/cis.subnetId: subnet-c1xgomu6
+  name: dep-1
 spec:
   replicas: 2
   selector:
@@ -14,21 +9,24 @@ spec:
       app: node-app-1
   template:
     metadata:
+      annotations:
+        kubernetes.io/cis.vpcId: vpc-dnyq9dgn
+        kubernetes.io/cis.subnetId: subnet-c1xgomu6
       labels:
         app: node-app-1
     spec:
+      nodeName: virtual-kubelet
       containers:
       - name: node-app-1
         image: ccr.ccs.tencentyun.com/tiejunhu/node-app-1
         ports:
         - containerPort: 8888
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: "1"
+          limits:
+            memory: 1Gi
+            cpu: "1"
       imagePullSecrets:
       - name: privccr
-      resources:
-        requests:
-          memory: 1Gi
-          cpu: "1"
-        limits:
-          memory: 1Gi
-          cpu: "1"
-      nodeName: virtual-kubelet

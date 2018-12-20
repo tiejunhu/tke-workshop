@@ -1,9 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app-1-deployment
-  labels:
-    app: node-app-1
+  name: dep-1
 spec:
   replicas: 2
   selector:
