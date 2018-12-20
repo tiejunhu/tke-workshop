@@ -6,7 +6,10 @@ var fs = require('fs');
 var app = express();
 
 app.get('/', function (req, res) {
-  var contents = fs.readFileSync('/var/vol1/text', 'utf8');
+  var contents = "";
+  if (fs.existsSync('/var/vol1/text')) {
+    contents = fs.readFileSync('/var/vol1/text', 'utf8');
+  }
   res.send('hello world from ' + ip.address() + "\n" + contents);
 })
 
